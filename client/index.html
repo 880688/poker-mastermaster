@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎰 Poker Master - 扑克游戏</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>🎰 Poker Master</h1>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="label">在线玩家</span>
+                    <span class="value" id="playerCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">当前游戏</span>
+                    <span class="value" id="gameId">-</span>
+                </div>
+            </div>
+            <div class="player-info">
+                <h3>玩家信息</h3>
+                <div class="info-group">
+                    <label>昵称</label>
+                    <input type="text" id="playerName" placeholder="输入你的昵称" maxlength="20">
+                    <button id="setNameBtn" class="btn btn-small">设置昵称</button>
+                </div>
+                <div class="info-group">
+                    <label>筹码</label>
+                    <div class="chips-display" id="chipsDisplay">1000</div>
+                </div>
+            </div>
+            <div class="players-list">
+                <h3>在线玩家</h3>
+                <div id="playersList" class="list-container"></div>
+            </div>
+        </aside>
+
+        <!-- 主游戏区域 -->
+        <main class="game-area">
+            <!-- 游戏控制台 -->
+            <div class="control-panel">
+                <div class="game-info">
+                    <span id="gameStatus" class="status waiting">等待中...</span>
+                    <span id="potDisplay" class="pot">底池: 0</span>
+                </div>
+                <button id="startGameBtn" class="btn btn-primary">🎮 开始游戏</button>
+            </div>
+
+            <!-- 牌桌 -->
+            <div class="poker-table">
+                <!-- 社区牌 -->
+                <div class="community-cards-area">
+                    <h3>社区牌</h3>
+                    <div class="community-cards" id="communityCards">
+                        <div class="card-slot"></div>
+                        <div class="card-slot"></div>
+                        <div class="card-slot"></div>
+                        <div class="card-slot"></div>
+                        <div class="card-slot"></div>
+                    </div>
+                </div>
+
+                <!-- 其他玩家区域 -->
+                <div class="other-players" id="otherPlayersContainer">
+                    <!-- 动态生成 -->
+                </div>
+
+                <!-- 当前玩家区域 -->
+                <div class="current-player">
+                    <h3>你的手牌</h3>
+                    <div class="player-hand" id="playerHand">
+                        <div class="card-slot"></div>
+                        <div class="card-slot"></div>
+                    </div>
+                    <div class="player-stats">
+                        <div class="stat">下注: <span id="currentBet">0</span></div>
+                        <div class="stat">状态: <span id="playerStatus">就绪</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 操作面板 -->
+            <div class="action-panel">
+                <div class="bet-controls">
+                    <input type="number" id="betAmount" placeholder="下注金额" min="1" value="10">
+                    <button id="betBtn" class="btn btn-action">💰 下注</button>
+                </div>
+                <div class="action-buttons">
+                    <button id="checkBtn" class="btn btn-secondary">✓ Check</button>
+                    <button id="foldBtn" class="btn btn-secondary">✕ Fold</button>
+                    <button id="raiseBtn" class="btn btn-secondary">⬆ Raise</button>
+                </div>
+            </div>
+
+            <!-- 游戏日志 -->
+            <div class="game-log">
+                <h3>游戏日志</h3>
+                <div class="log-content" id="gameLog">
+                    <div class="log-entry">欢迎来到 Poker Master！等待其他玩家加入...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
